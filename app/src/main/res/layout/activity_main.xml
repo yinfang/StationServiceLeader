@@ -1,0 +1,223 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.drawerlayout.widget.DrawerLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/drawer_ll"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:background="@color/bg_gray"
+    android:orientation="vertical">
+
+    <androidx.core.widget.NestedScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginTop="@dimen/middle_margin">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@color/bg_gray">
+
+            <include
+                android:id="@+id/header_ll"
+                layout="@layout/header"
+                android:visibility="gone"
+                app:layout_constraintRight_toRightOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <LinearLayout
+                android:id="@+id/header_img_ll"
+                style="@style/ClickLinerLayoutStyle"
+                android:layout_width="wrap_content"
+                android:layout_height="@dimen/title_height"
+                android:layout_margin="@dimen/normal_margin"
+                android:gravity="center|left"
+                android:orientation="horizontal"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/header_ll">
+
+                <ImageView
+                    android:layout_width="22dp"
+                    android:layout_height="22dp"
+                    android:scaleType="fitXY"
+                    android:src="@mipmap/more" />
+
+                <ImageView
+                    android:id="@+id/header_img"
+                    android:layout_width="@dimen/icon_size"
+                    android:layout_height="@dimen/icon_size"
+                    android:scaleType="fitXY"
+                    android:src="@mipmap/header" />
+
+            </LinearLayout>
+
+            <TextView
+                android:id="@+id/tv_header_title"
+                style="@style/SubTitleTextStyle"
+                android:layout_width="0dp"
+                android:layout_height="@dimen/title_height"
+                android:layout_marginTop="@dimen/normal_margin"
+                android:gravity="center"
+                android:text="@string/app_name"
+                android:textColor="@color/gray_23"
+                app:layout_constraintHorizontal_weight="1"
+                app:layout_constraintLeft_toRightOf="@id/header_img_ll"
+                app:layout_constraintRight_toLeftOf="@id/header_tv_ll"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <LinearLayout
+                android:id="@+id/header_tv_ll"
+                style="@style/ClickLinerLayoutStyle"
+                android:layout_width="67dp"
+                android:layout_height="@dimen/title_height"
+                android:layout_margin="@dimen/normal_margin"
+                android:gravity="center|right"
+                android:orientation="horizontal"
+                app:layout_constraintLeft_toRightOf="@id/tv_header_title"
+                app:layout_constraintRight_toRightOf="parent"
+                app:layout_constraintTop_toTopOf="parent">
+
+                <ImageView
+                    android:layout_width="26dp"
+                    android:layout_height="26dp"
+                    android:scaleType="fitXY"
+                    android:src="@mipmap/idata" />
+            </LinearLayout>
+
+            <com.youth.banner.Banner
+                android:id="@+id/banner"
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_margin="@dimen/normal_margin"
+                android:background="@drawable/placeholderimg"
+                app:banner_orientation="horizontal"
+                app:banner_radius="6dp"
+                app:delay_time="2000"
+                app:is_auto_loop="true"
+                app:layout_constraintDimensionRatio="W,1:3"
+                app:layout_constraintTop_toBottomOf="@id/header_img_ll" />
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/recorder_ll"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="@dimen/normal_margin"
+                android:background="@drawable/white_coner_bg"
+                android:orientation="vertical"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/banner">
+
+                <TextView
+                    android:id="@+id/record_title"
+                    style="@style/NormalTextStyle"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:padding="@dimen/normal_margin"
+                    android:text="值班记录"
+                    android:textColor="@color/gray_62"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/grid_onduty"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginRight="-3dp"
+                    android:background="@color/bg_gray"
+                    app:layoutManager="androidx.recyclerview.widget.GridLayoutManager"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/record_title"
+                    app:spanCount="3"
+                    tools:itemCount="3"
+                    tools:listitem="@layout/item_main_grid" />
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/fee_ll"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="@dimen/normal_margin"
+                android:background="@drawable/white_coner_bg"
+                android:orientation="vertical"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/recorder_ll">
+
+                <TextView
+                    android:id="@+id/else_title"
+                    style="@style/NormalTextStyle"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:padding="@dimen/normal_margin"
+                    android:text="收费管理"
+                    android:textColor="@color/gray_62"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/grid_fee"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginRight="-3dp"
+                    android:background="@color/bg_gray"
+                    app:layoutManager="androidx.recyclerview.widget.GridLayoutManager"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/else_title"
+                    app:spanCount="3"
+                    tools:itemCount="3"
+                    tools:listitem="@layout/item_main_grid" />
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/else_ll"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="@dimen/normal_margin"
+                android:background="@drawable/white_coner_bg"
+                android:orientation="vertical"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/fee_ll">
+
+                <TextView
+                    android:id="@+id/elec_title"
+                    style="@style/NormalTextStyle"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:padding="@dimen/normal_margin"
+                    android:text="机电管理"
+                    android:textColor="@color/gray_62"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/grid_elec"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginRight="-3dp"
+                    android:background="@color/bg_gray"
+                    app:layoutManager="androidx.recyclerview.widget.GridLayoutManager"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/elec_title"
+                    app:spanCount="3"
+                    tools:itemCount="3"
+                    tools:listitem="@layout/item_main_grid" />
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+            <View
+                style="@style/NormalTextStyle"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/normal_margin"
+                android:background="@color/bg_gray"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/else_ll" />
+
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </androidx.core.widget.NestedScrollView>
+
+    <include
+        layout="@layout/drawer_left_layout"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_gravity="start"
+        android:layout_marginRight="@dimen/middle_margin" />
+
+</androidx.drawerlayout.widget.DrawerLayout>

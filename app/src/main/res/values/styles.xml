@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- Base application theme. -->
+    <style name="AppTheme" parent="Theme.AppCompat.Light.NoActionBar">
+        <!-- Customize your theme here. -->
+        <item name="colorPrimary">@color/transparent</item>
+        <item name="colorPrimaryDark">@color/transparent</item>
+        <!--全局获得光标的颜色-->
+        <item name="colorAccent">@color/btn_color</item>
+        <item name="android:windowBackground">@color/transparent</item>
+    </style>
+
+    <style name="DialogStyle" parent="Theme.AppCompat.Dialog">
+        <item name="android:windowBackground">@android:color/transparent</item>
+        <item name="android:windowIsFloating">true</item>
+        <item name="android:background">@android:color/transparent</item>
+    </style>
+
+    <style name="TitleTextStyle">
+        <item name="android:textColor">@color/lb_browse_header_color</item>
+        <item name="android:textSize">@dimen/title_text_size</item>
+        <item name="android:textStyle">bold</item>
+    </style>
+
+    <style name="SubTitleTextStyle">
+        <item name="android:textColor">@color/lb_browse_header_color</item>
+        <item name="android:textSize">@dimen/sub_text_size</item>
+    </style>
+
+    <style name="NormalTextStyle">
+        <item name="android:textColor">@color/gray_23</item>
+        <item name="android:textSize">@dimen/normal_text_size</item>
+    </style>
+
+    <style name="SmallTextStyle">
+        <item name="android:textColor">@color/gray_62</item>
+        <item name="android:textSize">@dimen/small_text_size</item>
+    </style>
+
+    <!--LinerLayout点击-->
+    <style name="ClickLinerLayoutStyle">
+        <item name="android:clickable">true</item>
+        <item name="android:focusable">true</item>
+    </style>
+
+    <!-- EditText文字样式-->
+    <style name="EditTextStyle" parent="android:Widget.TextView">
+        <item name="android:layout_width">0dp</item>
+        <item name="android:layout_weight">1</item>
+        <item name="android:textSize">13sp</item>
+        <item name="android:textColor">@color/gray_50</item>
+        <item name="android:padding">3dp</item>
+        <item name="android:ellipsize">end</item>
+        <item name="android:singleLine">true</item>
+        <item name="android:background">@drawable/selector_solid_gray</item>
+        <item name="android:gravity">center</item>
+        <item name="android:minHeight">@dimen/line_height</item>
+    </style>
+
+    <!--自定义时间日期选择器-->
+    <style name="date_picker_dialog" parent="android:style/Theme.Dialog">
+        <item name="android:windowFrame">@null</item>
+        <item name="android:windowNoTitle">true</item>
+        <item name="android:windowIsFloating">true</item>
+        <item name="android:windowContentOverlay">@null</item>
+        <item name="android:windowBackground">#fff</item>
+    </style>
+
+    <!--一般按钮style-->
+    <style name="GreenButtonStyle">
+        <item name="android:textSize">14sp</item>
+        <item name="android:textColor">#ffffff</item>
+        <item name="android:singleLine">true</item>
+        <item name="android:ellipsize">end</item>
+        <item name="android:background">@drawable/btn_normal</item>
+    </style>
+</resources>

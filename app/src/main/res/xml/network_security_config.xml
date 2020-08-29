@@ -1,0 +1,11 @@
+<?xml version ="1.0" encoding ="utf-8"?><!--  Learn More about how to use App Actions: https://developer.android.com/guide/actions/index.html --><!--Android P(版本27以上) 限制了明文流量的网络请求，非加密的流量请求都会被系统禁止掉。
+ 如果当前应用的请求是 http 请求，而非 https ,这样就会导系统禁止当前应用进行该请求
+ 错误信息为： not permitted by network security policy
+解决办法：1.服务器和本地应用都改用 https (推荐)；
+          2.targetSdkVersion 降级回到 27；
+          3.创建network_security_config.xml文件，在AndroidManifest  application节点下配置代码android:networkSecurityConfig="@xml/network_security_config"
+ -->
+
+<network-security-config>
+    <base-config cleartextTrafficPermitted="true" />
+</network-security-config>

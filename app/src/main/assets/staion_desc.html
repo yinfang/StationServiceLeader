@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html style="height: 100%">
+
+<head>
+	<meta name="viewport"
+		  content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+	<meta charset="utf-8">
+	<link rel="stylesheet" type="text/css" href="./wangEditor.min.css">
+</head>
+
+<body style="height: 100%; margin: 0">
+<div id="editor" style="height: 100%"></div>
+
+<script type="text/javascript" src="./wangEditor.min.js"></script>
+<script type="text/javascript">
+		loadEditor('<p>用 JS 设置的内容</p>')
+		 function loadEditor(introduce) {
+            var E = window.wangEditor
+            var editor = new E('#editor')
+            editor.customConfig.onchange = html => {
+                introduce = html
+                    .replace(/</g, "&lt")
+                    .replace(/>/g, "&gt")
+                    .replace(/\//g, "&quot");
+            };
+
+            editor.customConfig.uploadFileName = "mFile";
+            editor.customConfig.uploadImgShowBase64 = true; // 使用 base64 保存图片
+            editor.create();
+            editor.txt.html(introduce);
+        };
+    </script>
+</body>
+
+</html>

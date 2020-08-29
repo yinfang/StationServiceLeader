@@ -1,0 +1,144 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#ffffff">
+
+    <include
+        android:id="@+id/header_ll"
+        layout="@layout/header"
+        android:visibility="gone" />
+
+    <LinearLayout
+        android:id="@+id/logo_ll"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:gravity="center|bottom"
+        android:orientation="vertical"
+        app:layout_constraintBottom_toTopOf="@id/login_ll"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_weight="3">
+
+        <ImageView
+            android:layout_width="90dp"
+            android:layout_height="90dp"
+            android:src="@mipmap/login_logo" />
+
+        <TextView
+            style="@style/TitleTextStyle"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/middle_margin"
+            android:gravity="center"
+            android:text="陕西高速集团\n高速公路站务管理平台"
+            android:textColor="@color/gray_23"
+            android:textSize="18sp" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/login_ll"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_marginLeft="@dimen/line_height"
+        android:layout_marginTop="@dimen/title_height"
+        android:layout_marginRight="@dimen/line_height"
+        android:gravity="center|top"
+        android:orientation="vertical"
+        app:layout_constraintBottom_toTopOf="@id/bottom_ll"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/logo_ll"
+        app:layout_constraintVertical_weight="5">
+
+        <EditText
+            android:id="@+id/et_account"
+            style="@style/NormalTextStyle"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/title_height"
+            android:background="@drawable/btn_coner_stroke_black"
+            android:drawableLeft="@drawable/ic_account"
+            android:drawablePadding="@dimen/normal_margin"
+            android:hint="请输入账号"
+            android:paddingStart="@dimen/middle_margin"
+            android:paddingEnd="@dimen/middle_margin"
+            android:singleLine="true"
+            android:textColorHint="@color/gray_62" />
+
+        <FrameLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/middle_margin">
+
+            <EditText
+                android:id="@+id/et_password"
+                style="@style/NormalTextStyle"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/title_height"
+                android:background="@drawable/btn_coner_stroke_black"
+                android:drawableStart="@drawable/ic_password"
+                android:drawablePadding="@dimen/normal_margin"
+                android:hint="请输入密码"
+                android:inputType="textPassword"
+                android:paddingStart="@dimen/middle_margin"
+                android:paddingEnd="@dimen/middle_margin"
+                android:singleLine="true"
+                android:textColorHint="@color/gray_62" />
+
+            <CheckBox
+                android:id="@+id/radio_see_pwd"
+                android:layout_width="18dp"
+                android:layout_height="18dp"
+                android:layout_gravity="right|center"
+                android:layout_marginRight="@dimen/middle_margin"
+                android:background="@drawable/selecter_radio_eye"
+                android:button="@null"
+                android:checked="false" />
+
+        </FrameLayout>
+
+        <Button
+            android:id="@+id/btn_login"
+            style="@style/GreenButtonStyle"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/line_height"
+            android:layout_marginTop="@dimen/line_height"
+            android:text="登录" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/bottom_ll"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:background="@mipmap/login_bottom_bg"
+        android:gravity="bottom"
+        android:orientation="vertical"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/login_ll"
+        app:layout_constraintVertical_weight="2">
+
+        <TextView
+            style="@style/SmallTextStyle"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="bottom"
+            android:background="@color/gray_transparent"
+            android:gravity="center"
+            android:text="Copyright @2020 by www.kunbo.com all rights reserved"
+            android:textColor="#ffffff"
+            android:textSize="11sp" />
+    </LinearLayout>
+
+    <com.kunbo.app.view.statusBarUtil.StatusBarHeightView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/logo_ll"
+        app:layout_constraintVertical_bias="1"
+        app:use_type="use_padding_top" />
+</androidx.constraintlayout.widget.ConstraintLayout>

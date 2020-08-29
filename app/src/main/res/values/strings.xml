@@ -1,0 +1,47 @@
+<resources>
+    <string name="app_name">高速公路站务管理平台</string>
+    <string name="browse_title"><![CDATA[Videos by Your Company]]></string>
+    <string name="related_movies">Related Videos</string>
+    <string name="grid_view">Grid View</string>
+    <string name="error_fragment">Error Fragment</string>
+    <string name="personal_settings">Personal Settings</string>
+    <string name="watch_trailer_1">Watch trailer</string>
+    <string name="watch_trailer_2">FREE</string>
+    <string name="rent_1">Rent By Day</string>
+    <string name="rent_2">From $1.99</string>
+    <string name="buy_1">Buy and Own</string>
+    <string name="buy_2">AT $9.99</string>
+    <string name="movie">Movie</string>
+
+    <string name="onduty_mange">值班管理</string>
+    <string name="special_manage">车道特情</string>
+    <string name="onduty_form_title">%s%s年%s月值班信息表</string>
+    <string name="onduty_item_title">提\u0020\u0020交\u0020\u0020人：%s</string>
+    <string name="onduty_item_date">提交时间：%s</string>
+
+    <string name="month_total_fee">当\u0020\u0020月\u0020\u0020收\u0020\u0020费\u0020\u0020额\t\t%s万/元</string>
+    <string name="last_year_total_fee">上年同比收费额\t\t%s万/元</string>
+    <string name="guest_month_total_fee">客车月实收额\t\t%s万/元</string>
+    <string name="goods_month_total_fee">货车月实收额\t\t%s万/元</string>
+
+    <string name="percent">%s</string>
+    <string name="car_num">%s\t万/辆</string>
+
+    <string name="num_tip">%s\t辆</string>
+    <string name="fee_tip">%s\t元</string>
+
+    <string name="scrren_title">高速公路站务系统</string>
+    <string name="left_bottom_sub_title">月收费额、车流量统计</string>
+    <string name="right_top1_sub_title">当前系统使用率</string>
+    <string name="right_top2_sub_title">当前任务完成率</string>
+    <string name="right_middle_sub_title">本周收费额、车流量统计</string>
+    <string name="right_bottom_sub_title">今日实时收费额、车流量</string>
+    <string name="middle_top_title">西渭分公司路线图</string>
+    <string name="middle_top_sub_title">西安————临潼高速公路收费站示意图</string>
+    <string name="middle_bottom_sub_title">各收费站数据统计</string>
+
+    <string name="run_num">运行\t%s台 </string>
+    <string name="bad_num">故障\t%s台</string>
+    <string name="repair_num">报修\t%s台</string>
+
+</resources>

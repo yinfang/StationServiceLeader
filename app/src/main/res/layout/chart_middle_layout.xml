@@ -1,0 +1,147 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <LinearLayout
+        android:id="@+id/middle_top_ll"
+        android:layout_width="wrap_content"
+        android:layout_height="0dp"
+        app:layout_constraintBottom_toTopOf="@id/middle_bottom_ll"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_weight="0.55"
+        android:orientation="vertical">
+
+        <TextView
+            style="@style/SubTitleTextStyle"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/normal_margin"
+            android:gravity="center"
+            android:text="@string/middle_top_sub_title"
+            android:textSize="12sp"
+            android:textStyle="bold" />
+
+        <com.kunbo.app.view.zoomPhotoView.PhotoView
+            android:id="@+id/chart_middle_top"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:src="@mipmap/station_line" />
+
+    </LinearLayout>
+    <!-- android:background="@drawable/panel_middle_bottom"
+    android:background="@drawable/title_bg_long"-->
+    <LinearLayout
+        android:id="@+id/middle_bottom_ll"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_marginTop="@dimen/normal_margin"
+        android:background="@color/theme_bg"
+        android:orientation="vertical"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/middle_top_ll"
+        app:layout_constraintVertical_weight="0.45">
+
+        <TextView
+            android:id="@+id/middle_bottom_title"
+            style="@style/SubTitleTextStyle"
+            android:layout_width="match_parent"
+            android:layout_height="30dp"
+            android:background="@color/list_title_bg"
+            android:gravity="center"
+            android:text="@string/middle_bottom_sub_title"
+            android:textSize="12sp"
+            android:textStyle="bold" />
+
+        <LinearLayout
+            android:id="@+id/list_title_ll"
+            android:layout_width="match_parent"
+            android:layout_height="30dp"
+            android:orientation="horizontal">
+
+            <View
+                android:layout_width="0.5dp"
+                android:layout_height="wrap_content"
+                android:background="@color/list_title_bg" />
+
+            <TextView
+                android:id="@+id/list_title"
+                style="@style/SmallTextStyle"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1.5"
+                android:gravity="center"
+                android:text="收费站"
+                android:textSize="10dp"
+                android:textStyle="bold" />
+
+            <View
+                android:layout_width="0.5dp"
+                android:layout_height="wrap_content"
+                android:background="@color/list_title_bg" />
+
+            <TextView
+                style="@style/SmallTextStyle"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_marginLeft="0.5dp"
+                android:layout_marginRight="0.5dp"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:text="收费额"
+                android:textSize="10dp"
+                android:textStyle="bold" />
+
+            <View
+                android:layout_width="0.5dp"
+                android:layout_height="wrap_content"
+                android:background="@color/list_title_bg" />
+
+            <TextView
+                style="@style/SmallTextStyle"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:text="入口车流量"
+                android:textSize="10dp"
+                android:textStyle="bold" />
+
+            <View
+                android:layout_width="0.5dp"
+                android:layout_height="wrap_content"
+                android:background="@color/list_title_bg" />
+
+            <TextView
+                style="@style/SmallTextStyle"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:text="出口车流量"
+                android:textSize="10dp"
+                android:textStyle="bold" />
+
+            <View
+                android:layout_width="0.5dp"
+                android:layout_height="wrap_content"
+                android:background="@color/list_title_bg" />
+
+        </LinearLayout>
+
+        <com.kunbo.app.view.AutoScrollRecyclerview
+            android:id="@+id/list_middle_bottom"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:background="@drawable/list_border"
+            android:paddingBottom="5dp"
+            app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+            tools:listitem="@layout/item_middle_bottom" />
+    </LinearLayout>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

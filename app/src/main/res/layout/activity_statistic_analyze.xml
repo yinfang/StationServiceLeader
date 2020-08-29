@@ -1,0 +1,504 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/bg_gray">
+
+    <FrameLayout
+        android:id="@+id/header_ll"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <include layout="@layout/header" />
+
+        <TextView
+            android:id="@+id/tv_station_selecte"
+            style="@style/SmallTextStyle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="right|center"
+            android:layout_marginRight="@dimen/normal_margin"
+            android:background="@drawable/selector_solid_gray"
+            android:drawableRight="@drawable/ic_arrow_drop_down_white"
+            android:gravity="right|center"
+            android:paddingLeft="@dimen/small_margin"
+            android:textColor="#ffffff"
+            android:textSize="11sp" />
+    </FrameLayout>
+
+    <androidx.core.widget.NestedScrollView
+        android:id="@+id/scroll"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/header_ll"
+        app:layout_constraintVertical_weight="1">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_margin="@dimen/normal_margin"
+            android:orientation="vertical">
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/fee_ll"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@drawable/white_coner_bg"
+                android:gravity="center_vertical"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:id="@+id/fee_title"
+                    style="@style/NormalTextStyle"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="@dimen/normal_margin"
+                    android:text="收费额"
+                    app:layout_constraintLeft_toLeftOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <TextView
+                    android:id="@+id/month_total_fee"
+                    style="@style/SmallTextStyle"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="@dimen/normal_margin"
+                    android:gravity="center"
+                    android:text="@string/month_total_fee"
+                    app:layout_constraintHorizontal_weight="1"
+                    app:layout_constraintLeft_toLeftOf="parent"
+                    app:layout_constraintRight_toLeftOf="@id/guest_month_total_fee"
+                    app:layout_constraintTop_toBottomOf="@+id/fee_title" />
+
+                <TextView
+                    android:id="@+id/guest_month_total_fee"
+                    style="@style/SmallTextStyle"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="@dimen/normal_margin"
+                    android:gravity="center"
+                    android:text="@string/guest_month_total_fee"
+                    app:layout_constraintHorizontal_weight="1"
+                    app:layout_constraintLeft_toRightOf="@id/month_total_fee"
+                    app:layout_constraintRight_toRightOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/fee_title" />
+
+                <TextView
+                    android:id="@+id/last_year_total_fee"
+                    style="@style/SmallTextStyle"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="@dimen/normal_margin"
+                    android:gravity="center"
+                    android:text="@string/last_year_total_fee"
+                    app:layout_constraintHorizontal_weight="1"
+                    app:layout_constraintLeft_toLeftOf="parent"
+                    app:layout_constraintRight_toLeftOf="@id/goods_month_total_fee"
+                    app:layout_constraintTop_toBottomOf="@+id/month_total_fee" />
+
+                <TextView
+                    android:id="@+id/goods_month_total_fee"
+                    style="@style/SmallTextStyle"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="@dimen/normal_margin"
+                    android:gravity="center"
+                    android:text="@string/goods_month_total_fee"
+                    app:layout_constraintHorizontal_weight="1"
+                    app:layout_constraintLeft_toRightOf="@id/last_year_total_fee"
+                    app:layout_constraintRight_toRightOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/guest_month_total_fee" />
+
+                <View
+                    style="@style/NormalTextStyle"
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/normal_margin"
+                    android:background="@drawable/white_coner_bg"
+                    app:layout_constraintLeft_toLeftOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/goods_month_total_fee" />
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+            <LinearLayout
+                android:id="@+id/month_fee_ll"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/normal_margin"
+                android:background="@drawable/white_coner_bg"
+                android:gravity="center_vertical"
+                android:orientation="vertical"
+                app:layout_constraintTop_toBottomOf="@id/fee_ll">
+
+                <TextView
+                    android:id="@+id/month_fee_percent_title"
+                    style="@style/NormalTextStyle"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="@dimen/normal_margin"
+                    android:text="当月实收额占比"
+                    app:layout_constraintLeft_toLeftOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <LinearLayout
+                    android:id="@+id/pie_ll"
+                    android:layout_width="match_parent"
+                    android:layout_height="100dp"
+                    android:orientation="horizontal"
+                    app:layout_constraintLeft_toLeftOf="parent"
+                    app:layout_constraintRight_toRightOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/month_fee_percent_title">
+
+                    <Space
+                        android:layout_width="@dimen/middle_margin"
+                        android:layout_height="match_parent" />
+
+                    <TextView
+                        android:id="@+id/cash_percent"
+                        style="@style/SmallTextStyle"
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1"
+                        android:background="@drawable/shape_oval_green"
+                        android:gravity="center"
+                        android:lineSpacingExtra="@dimen/small_margin"
+                        android:padding="@dimen/normal_margin"
+                        android:text="@string/percent" />
+
+                    <Space
+                        android:layout_width="@dimen/middle_margin"
+                        android:layout_height="match_parent" />
+
+                    <TextView
+                        android:id="@+id/moblie_percent"
+                        style="@style/SmallTextStyle"
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1"
+                        android:background="@drawable/shape_oval_orange"
+                        android:gravity="center"
+                        android:lineSpacingExtra="@dimen/small_margin"
+                        android:padding="@dimen/normal_margin"
+                        android:text="@string/percent" />
+
+                    <Space
+                        android:layout_width="@dimen/middle_margin"
+                        android:layout_height="match_parent" />
+
+                    <TextView
+                        android:id="@+id/card_percent"
+                        style="@style/SmallTextStyle"
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1"
+                        android:background="@drawable/shape_oval_blue"
+                        android:gravity="center"
+                        android:lineSpacingExtra="@dimen/small_margin"
+                        android:padding="@dimen/normal_margin"
+                        android:text="@string/percent" />
+
+                    <Space
+                        android:layout_width="@dimen/middle_margin"
+                        android:layout_height="match_parent" />
+                </LinearLayout>
+
+                <View
+                    style="@style/NormalTextStyle"
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/normal_margin"
+                    android:background="@drawable/white_coner_bg"
+                    app:layout_constraintLeft_toLeftOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/pie_ll" />
+            </LinearLayout>
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/car_ll"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/normal_margin"
+                android:background="@drawable/white_coner_bg"
+                android:gravity="center_vertical"
+                android:orientation="horizontal"
+                app:layout_constraintTop_toBottomOf="@id/month_fee_ll">
+
+                <TextView
+                    android:id="@+id/car_title"
+                    style="@style/NormalTextStyle"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="@dimen/normal_margin"
+                    android:text="车流量"
+                    app:layout_constraintLeft_toLeftOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <TextView
+                    android:id="@+id/carin_title"
+                    style="@style/NormalTextStyle"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="@dimen/middle_margin"
+                    android:layout_marginTop="@dimen/normal_margin"
+                    android:text="入口车流量"
+                    app:layout_constraintLeft_toLeftOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/car_title" />
+
+                <View
+                    android:id="@+id/carin_line"
+                    android:layout_width="90dp"
+                    android:layout_height="2dp"
+                    android:layout_marginLeft="@dimen/normal_margin"
+                    android:layout_marginTop="3dp"
+                    android:background="@drawable/shape_rectangle_colorful"
+                    app:layout_constraintLeft_toLeftOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/carin_title" />
+
+                <TextView
+                    android:id="@+id/carin_month"
+                    style="@style/SmallTextStyle"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="@dimen/middle_margin"
+                    android:gravity="center"
+                    android:lineSpacingExtra="@dimen/small_margin"
+                    android:text="@string/car_num"
+                    app:layout_constraintHorizontal_weight="1"
+                    app:layout_constraintLeft_toLeftOf="parent"
+                    app:layout_constraintRight_toLeftOf="@id/carin_last_year"
+                    app:layout_constraintTop_toBottomOf="@+id/carin_line" />
+
+                <TextView
+                    android:id="@+id/carin_last_year"
+                    style="@style/SmallTextStyle"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="@dimen/middle_margin"
+                    android:gravity="center"
+                    android:lineSpacingExtra="@dimen/small_margin"
+                    android:text="@string/car_num"
+                    app:layout_constraintHorizontal_weight="1"
+                    app:layout_constraintLeft_toRightOf="@id/carin_month"
+                    app:layout_constraintRight_toRightOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/carin_line" />
+
+                <TextView
+                    android:id="@+id/carout_title"
+                    style="@style/NormalTextStyle"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="@dimen/middle_margin"
+                    android:layout_marginTop="@dimen/middle_margin"
+                    android:text="出口车流量"
+                    app:layout_constraintLeft_toLeftOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/carin_last_year" />
+
+                <View
+                    android:id="@+id/carout_line"
+                    android:layout_width="90dp"
+                    android:layout_height="2dp"
+                    android:layout_marginLeft="@dimen/normal_margin"
+                    android:layout_marginTop="3dp"
+                    android:background="@drawable/shape_rectangle_colorful"
+                    app:layout_constraintLeft_toLeftOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/carout_title" />
+
+                <TextView
+                    android:id="@+id/carout_month"
+                    style="@style/SmallTextStyle"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="@dimen/middle_margin"
+                    android:gravity="center"
+                    android:lineSpacingExtra="@dimen/small_margin"
+                    android:text="@string/car_num"
+                    app:layout_constraintHorizontal_weight="1"
+                    app:layout_constraintLeft_toLeftOf="parent"
+                    app:layout_constraintRight_toLeftOf="@id/carout_last_year"
+                    app:layout_constraintTop_toBottomOf="@+id/carout_line" />
+
+                <TextView
+                    android:id="@+id/carout_last_year"
+                    style="@style/SmallTextStyle"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="@dimen/middle_margin"
+                    android:gravity="center"
+                    android:lineSpacingExtra="@dimen/small_margin"
+                    android:text="@string/car_num"
+                    app:layout_constraintHorizontal_weight="1"
+                    app:layout_constraintLeft_toRightOf="@id/carout_month"
+                    app:layout_constraintRight_toRightOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/carout_line" />
+
+                <TextView
+                    android:id="@+id/carelse_title"
+                    style="@style/NormalTextStyle"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="@dimen/middle_margin"
+                    android:layout_marginTop="@dimen/middle_margin"
+                    android:text="客货车月流量"
+                    app:layout_constraintLeft_toLeftOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/carout_last_year" />
+
+                <View
+                    android:id="@+id/carelse_line"
+                    android:layout_width="105dp"
+                    android:layout_height="2dp"
+                    android:layout_marginLeft="@dimen/normal_margin"
+                    android:layout_marginTop="3dp"
+                    android:background="@drawable/shape_rectangle_colorful"
+                    app:layout_constraintLeft_toLeftOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/carelse_title" />
+
+                <TextView
+                    android:id="@+id/car_guest_month"
+                    style="@style/SmallTextStyle"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="@dimen/middle_margin"
+                    android:gravity="center"
+                    android:lineSpacingExtra="@dimen/small_margin"
+                    android:text="@string/car_num"
+                    app:layout_constraintHorizontal_weight="1"
+                    app:layout_constraintLeft_toLeftOf="parent"
+                    app:layout_constraintRight_toLeftOf="@id/car_goods_month"
+                    app:layout_constraintTop_toBottomOf="@+id/carelse_line" />
+
+                <TextView
+                    android:id="@+id/car_goods_month"
+                    style="@style/SmallTextStyle"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="@dimen/middle_margin"
+                    android:gravity="center"
+                    android:lineSpacingExtra="@dimen/small_margin"
+                    android:text="@string/car_num"
+                    app:layout_constraintHorizontal_weight="1"
+                    app:layout_constraintLeft_toRightOf="@id/car_guest_month"
+                    app:layout_constraintRight_toRightOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/carelse_line" />
+
+                <View
+                    style="@style/NormalTextStyle"
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/normal_margin"
+                    android:background="@drawable/white_coner_bg"
+                    app:layout_constraintLeft_toLeftOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/car_goods_month" />
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/dulou_ll"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/normal_margin"
+                android:layout_marginBottom="@dimen/middle_margin"
+                android:background="@drawable/white_coner_bg"
+                android:gravity="center_vertical"
+                android:orientation="horizontal"
+                app:layout_constraintTop_toBottomOf="@id/car_ll">
+
+                <TextView
+                    android:id="@+id/dulou_title"
+                    style="@style/NormalTextStyle"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="@dimen/normal_margin"
+                    android:text="堵漏增收"
+                    app:layout_constraintLeft_toLeftOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <LinearLayout
+                    android:id="@+id/current_month_ll"
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/line_height"
+                    android:layout_marginTop="@dimen/normal_margin"
+                    android:background="@color/oval_green"
+                    android:gravity="center"
+                    android:orientation="horizontal"
+                    app:layout_constraintTop_toBottomOf="@id/dulou_title">
+
+                    <TextView
+                        style="@style/NormalTextStyle"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="@dimen/normal_margin"
+                        android:layout_weight="1"
+                        android:gravity="center"
+                        android:text="本月" />
+
+                    <TextView
+                        android:id="@+id/dulou_num_month"
+                        style="@style/SmallTextStyle"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="@dimen/normal_margin"
+                        android:layout_weight="1"
+                        android:gravity="center"
+                        android:text="@string/num_tip" />
+
+                    <TextView
+                        android:id="@+id/dulou_fee_month"
+                        style="@style/SmallTextStyle"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="@dimen/normal_margin"
+                        android:layout_weight="1"
+                        android:gravity="center"
+                        android:text="@string/fee_tip" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/total_dulou_ll"
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/line_height"
+                    android:layout_marginTop="@dimen/normal_margin"
+                    android:background="@color/oval_blue"
+                    android:gravity="center_vertical"
+                    android:orientation="horizontal"
+                    app:layout_constraintTop_toBottomOf="@id/current_month_ll">
+
+                    <TextView
+                        style="@style/NormalTextStyle"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="@dimen/normal_margin"
+                        android:layout_weight="1"
+                        android:gravity="center"
+                        android:text="累计" />
+
+                    <TextView
+                        android:id="@+id/dulou_num_year"
+                        style="@style/SmallTextStyle"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="@dimen/normal_margin"
+                        android:layout_weight="1"
+                        android:gravity="center"
+                        android:text="@string/num_tip" />
+
+                    <TextView
+                        android:id="@+id/dulou_fee_year"
+                        style="@style/SmallTextStyle"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="@dimen/normal_margin"
+                        android:layout_weight="1"
+                        android:gravity="center"
+                        android:text="@string/fee_tip" />
+
+                </LinearLayout>
+
+                <View
+                    style="@style/NormalTextStyle"
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/normal_margin"
+                    android:background="@drawable/white_coner_bg"
+                    app:layout_constraintLeft_toLeftOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/total_dulou_ll" />
+            </androidx.constraintlayout.widget.ConstraintLayout>
+        </LinearLayout>
+    </androidx.core.widget.NestedScrollView>
+</androidx.constraintlayout.widget.ConstraintLayout>
