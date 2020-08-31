@@ -96,10 +96,12 @@
                 android:resource="@xml/file_paths" />
         </provider>
 
-        <service
-            android:name=".service.MyService"
+        <service android:name=".service.MyService"
             android:enabled="true"
-            android:priority="1000" />
+            android:process=":my_service"/>
+        <service android:name=".service.CancelNoticeService"
+            android:enabled="true"
+            android:process=":service"/>
     </application>
 
 </manifest>

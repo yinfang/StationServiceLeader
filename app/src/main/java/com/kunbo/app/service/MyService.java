@@ -5,11 +5,8 @@ import android.app.NotificationChannel;
 import android.app.NotificationManager;
 import android.app.PendingIntent;
 import android.app.Service;
-import android.content.Context;
 import android.content.Intent;
-import android.content.ServiceConnection;
 import android.media.RingtoneManager;
-import android.net.Uri;
 import android.os.Build;
 import android.os.Bundle;
 import android.os.Handler;
@@ -18,11 +15,11 @@ import android.os.Message;
 import android.util.Log;
 
 import androidx.annotation.Nullable;
-import androidx.core.app.NotificationCompat;
+
 
 import com.kunbo.app.C;
-import com.kunbo.app.R;
 import com.kunbo.app.activitys.MainActivity;
+import com.kunbo.app.R;
 import com.rabbitmq.client.AMQP;
 import com.rabbitmq.client.Channel;
 import com.rabbitmq.client.Connection;
@@ -35,6 +32,7 @@ import java.lang.ref.WeakReference;
 import java.util.concurrent.TimeoutException;
 
 public class MyService extends Service {
+    public static final int NOTICE_ID = 100;
     private ConnectionFactory factory;
     private boolean running = true;
     private static String message;
@@ -60,6 +58,17 @@ public class MyService extends Service {
     @Override
     public void onCreate() {
         super.onCreate();
+        //如果API大于18，需要弹出一个可见通知
+        Notification.Builder builder = new Notification.Builder(this);
+        builder.setSmallIcon(R.mipmap.ic_logo);
+        builder.setContentTitle("KeepAppAlive");
+        builder.setContentText("MyService is running...");
+        startForeground(NOTICE_ID, builder.build());
+        // 如果觉得常驻通知栏体验不好
+        // 可以通过启动CancelNoticeService，将通知移除，oom_adj值不变
+        Intent intent = new Intent(this, CancelNoticeService.class);
+        startService(intent);
+
         setupConnectionFactory();
     }
 
@@ -168,8 +177,12 @@ public class MyService extends Service {
         super.onDestroy();
         running = false;
         mHandler.removeCallbacksAndMessages(null);
+        // 如果Service被杀死，干掉通知
+        NotificationManager mManager = (NotificationManager) getSystemService(NOTIFICATION_SERVICE);
+        if (mManager != null)
+            mManager.cancel(NOTICE_ID);
         // 重启服务
-        Intent intent = new Intent(getApplicationContext(),MyService.class);
+        Intent intent = new Intent(getApplicationContext(), MyService.class);
         startService(intent);
     }
 }
